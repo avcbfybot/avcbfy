@@ -1,0 +1,29 @@
+name: Atualizar a Base de Dados Semanalmente
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Executar todos os dias à meia-noite
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+      TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+          
+      - name: Instalar Dependências
+        run: npm install
+
+      - name: Executar Script
+        run: npm run start

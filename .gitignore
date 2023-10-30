@@ -1,0 +1,4 @@
+node_modules
+older
+.env
+backup-db

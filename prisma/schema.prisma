@@ -1,0 +1,25 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Dados {
+  id               String @id @default(uuid())
+  codigoLogradouro Int
+  rua              String
+  numero           String
+  bairro           String
+  cidade           String
+  numeroAVCB       String @unique
+  dataVigencia     String
+  item1            String
+  item2            String
+  data2            String
+  tipoImovel       String
+  item3            String
+}
