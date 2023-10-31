@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        index: [75, 76, 77, 78, 79]
+        index: [95, 96, 97, 98, 99]
 
     steps:
       - name: Checkout do código
